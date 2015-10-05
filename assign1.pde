@@ -1,6 +1,7 @@
 /* please implement your assign1 code in this file. */
 PImage shipImg;
-PImage background;
+PImage background1;
+PImage background2;
 PImage hp;
 PImage enemy;
 PImage treasure;
@@ -9,16 +10,21 @@ int y;
 int w;
 int z;
 int s;
+int u;
+int m;
 
 void setup () {
   size(640,480) ;  // must use this size.
   x =0;
+  m =0;
+  u =-640;
   y =floor(random(0,400));
   w =x+floor(random(0,600));
   z =x+floor(random(0,200));
   s =floor(random(0,450));
   shipImg =loadImage("img/fighter.png");
-  background =loadImage("img/bg1.png");
+  background1 =loadImage("img/bg1.png");
+  background2 =loadImage("img/bg2.png");
   hp =loadImage("img/hp.png");
   enemy =loadImage("img/enemy.png");
   treasure =loadImage("img/treasure.png");
@@ -26,8 +32,11 @@ void setup () {
 
 void draw() {
   //background
-  image (background,0,0);
-  
+  image (background1,m,0);
+  m +=1;
+  image (background2,u,0);
+  u +=1;
+ 
   // blood
   stroke(255,0,0);
   fill(255,0,0);
